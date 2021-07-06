@@ -2,9 +2,11 @@
 
 @section('app_content')
 
-@include('Admin.inc.navbar')
-  <!-- Main Sidebar Container -->
-@include('Admin.inc.sidebar')
+    @if ( auth('admin')->user())
+    @include('Admin.inc.navbar')
+    <!-- Main Sidebar Container -->
+    @include('Admin.inc.sidebar')
+    @endif
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

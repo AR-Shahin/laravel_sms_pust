@@ -22,8 +22,6 @@
 <!-- jQuery -->
 <script src="{{ asset('js/app.js') }}"></script>
 @stack('script')
-<script>
-setSwalMessage('shahin bhai')
-</script>
+
 </body>
 </html>
