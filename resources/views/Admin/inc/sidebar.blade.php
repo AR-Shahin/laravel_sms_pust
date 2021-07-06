@@ -59,7 +59,14 @@
               </p>
             </a>
           </li>
-
+          <li class="nav-item">
+            <a href="{{ route('admin.course.index') }}" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Course
+              </p>
+            </a>
+          </li>
 
         </ul>
       </nav>
