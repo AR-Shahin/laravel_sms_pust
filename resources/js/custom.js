@@ -3,11 +3,12 @@ window.myFun = (params) => {
     Swal.fire(params)
 }
 
-globalThis.setSwalMessage = (params) => {
+globalThis.setSwalMessage = (title = "Success",msg='Data Save Successfully!',flag= 'success') => {
     Swal.fire(
-    params,
-    'That thing is still around?',
-    'question'
+    title,
+    msg,
+    flag
     )
 }
 
+globalThis.base_path = window.location.origin
