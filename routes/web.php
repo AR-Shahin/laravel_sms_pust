@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\DepartmentAdminController;
 use App\Http\Controllers\Admin\DepartmentController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('department-fetch', [DepartmentController::class, 'departmentFetch'])->name('department.fetch');
         Route::resource('course', CourseController::class);
         Route::get('course-fetch', [CourseController::class, 'courseFetch'])->name('course.fetch');
+
+        Route::resource('dept-admin', DepartmentAdminController::class);
     });
 });

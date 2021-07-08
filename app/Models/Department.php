@@ -9,4 +9,10 @@ class Department extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
+
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = ucwords($value);
+    }
 }
