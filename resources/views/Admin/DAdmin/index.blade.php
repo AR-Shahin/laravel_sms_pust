@@ -35,12 +35,12 @@
                                 <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $admin->name }}</td>
                                 <td>{{ $admin->email }}</td>
-                                <td>{{ $admin->department_id }}</td>
+                                <td>{{ $admin->department->name ?? '' }}</td>
                                 <td>{{ $admin->phone }}</td>
                                 <td>{{ $admin->status }}</td>
                                 <td>{{ $admin->image }}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('admin.dept-admin.edit',$admin->id) }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
                                     <a href="" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
                                     <form
                                     action="{{ route('admin.dept-admin.destroy',$admin->id) }}"

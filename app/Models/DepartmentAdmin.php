@@ -16,4 +16,9 @@ class DepartmentAdmin extends Model
         $this->attributes['name'] = ucwords($value);
         $this->attributes['slug'] = Str::slug($value);
     }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

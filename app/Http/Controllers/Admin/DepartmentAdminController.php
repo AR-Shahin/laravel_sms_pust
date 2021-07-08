@@ -17,7 +17,7 @@ class DepartmentAdminController extends Controller
      */
     public function index()
     {
-        $admins = DepartmentAdmin::latest()->get();
+        $admins = DepartmentAdmin::with('department')->latest()->get();
         return view('Admin.DAdmin.index', compact('admins'));
     }
 
@@ -70,9 +70,11 @@ class DepartmentAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(DepartmentAdmin $dept_admin)
     {
-        //
+        $departments = Department::all();
+        $admin = $dept_admin;
+        return view('Admin.DAdmin.edit', compact('departments', 'admin'));
     }
 
     /**
@@ -82,9 +84,17 @@ class DepartmentAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, DepartmentAdmin $dept_admin)
     {
-        //
+        $request->validate([
+            'department_id' => ['required'],
+            'name' => 'required',
+            'email' => "required|unique:department_admins,email,{$request->dept_admin->id}",
+            'phone' => 'required',
+        ]);
+        $dept_admin->update($request->all());
+        $this->setSuccessMessage('Data Updated Successfully!');
+        return back();
     }
 
     /**
