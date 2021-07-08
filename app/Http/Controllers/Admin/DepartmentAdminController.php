@@ -93,8 +93,11 @@ class DepartmentAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DepartmentAdmin $dept_admin)
     {
-        //
+        if ($dept_admin->delete()) {
+            $this->setSuccessMessage('Data Delete Successfully!');
+            return back();
+        }
     }
 }

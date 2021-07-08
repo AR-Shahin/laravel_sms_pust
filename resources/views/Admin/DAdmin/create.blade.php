@@ -12,7 +12,7 @@
                     <h4 class="text-info">Department Admin</h4>
                 </div>
                 <div class="text-right pull-right">
-                    <a href="{{ route('admin.department.index') }}" class="btn btn-sm btn-success">Back</a>
+                    <a href="{{ route('admin.dept-admin.index') }}" class="btn btn-sm btn-success">Back</a>
                 </div>
             </div>
             <div class="card-body">
