@@ -31,4 +31,12 @@ class AuthController extends Controller
     {
         return view('Admin.dashboard');
     }
+
+    function logout(Request $request)
+    {
+        if ($request->auth === 'admin') {
+            Auth::guard('admin')->logout();
+            return redirect()->route('admin.login');
+        }
+    }
 }

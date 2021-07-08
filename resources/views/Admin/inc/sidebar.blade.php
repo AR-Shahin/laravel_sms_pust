@@ -22,7 +22,7 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -50,31 +50,52 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('admin.department.index') }}" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Depeartment
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('admin.course.index') }}" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Course
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('admin.dept-admin.index') }}" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Depatment Admin
-              </p>
-            </a>
-          </li>
+          </li> --}}
+
+          @auth('admin')
+            <li class="nav-item">
+                <a href="{{ route('admin.department.index') }}" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                    Depeartment
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.course.index') }}" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                    Course
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.dept-admin.index') }}" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                    Depatment Admin
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <form action="{{ route('logout') }}" class="d-inline" method="POST">
+                    @csrf
+                    <input type="hidden" value="admin" name="auth">
+                    <button type="submit" class="btn btn-primary btn-sm btn-block">Logout</button>
+                </form>
+            </li>
+          @endauth
+
+          @auth('dept_admin')
+            <li class="nav-item">
+                <a href="{{ route('admin.dept-admin.index') }}" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                    Depatment Admin
+                </p>
+                </a>
+            </li>
+          @endauth
 
         </ul>
       </nav>

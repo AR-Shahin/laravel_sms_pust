@@ -12,6 +12,9 @@ Route::get('/', function () {
     return view('layouts.master');
 });
 
+// logout
+
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admins Routes
 
