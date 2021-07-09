@@ -1,14 +1,15 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CourseController;
-use App\Http\Controllers\Admin\DepartmentAdminController;
-use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\GlobalController;
-use App\Http\Controllers\DAdmin\AuthController as DAdminAuthController;
+use App\Http\Controllers\Admin\SessionController;
 use App\Http\Controllers\DAdmin\StudentController;
 use App\Http\Controllers\DAdmin\TeacherController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\DepartmentAdminController;
+use App\Http\Controllers\DAdmin\AuthController as DAdminAuthController;
 
 
 
@@ -32,7 +33,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('department-fetch', [DepartmentController::class, 'departmentFetch'])->name('department.fetch');
         Route::resource('course', CourseController::class);
         Route::get('course-fetch', [CourseController::class, 'courseFetch'])->name('course.fetch');
-
+        Route::resource('session', SessionController::class);
+        Route::get('session-fetch', [SessionController::class, 'sessionFetch'])->name('session.fetch');
         Route::resource('dept-admin', DepartmentAdminController::class);
 
         Route::get('teachers', [GlobalController::class, 'teachers'])->name('teachers');

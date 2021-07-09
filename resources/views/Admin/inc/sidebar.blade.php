@@ -70,6 +70,22 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route('admin.session.index') }}" class="nav-link">
+                <i class="nav-icon fa fa-book"></i>
+                <p>
+                    Session
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.course.index') }}" class="nav-link">
+                <i class="nav-icon fa fa-school"></i>
+                <p>
+                    Semester
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('admin.dept-admin.index') }}" class="nav-link">
                 <i class="nav-icon far fa-image"></i>
                 <p>
