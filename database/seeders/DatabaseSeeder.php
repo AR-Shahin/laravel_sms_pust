@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin;
+
 use Illuminate\Database\Seeder;
+use Database\Seeders\Department;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,5 +16,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\Admin::factory(1)->create();
+
+        $this->call([
+            Department::class,
+            Course::class
+        ]);
     }
 }
