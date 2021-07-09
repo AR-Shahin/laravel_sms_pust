@@ -89,7 +89,7 @@
           <!-- Dept admin -->
           @auth('dept_admin')
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('d-admin.teacher.index') }}" class="nav-link">
                 <i class="nav-icon far fa-image"></i>
                 <p>
                     Teacher

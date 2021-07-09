@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\DepartmentAdminController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\DAdmin\AuthController as DAdminAuthController;
+use App\Http\Controllers\DAdmin\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,7 +45,7 @@ Route::prefix('d-admin')->name('d-admin.')->group(function () {
     // Auth
     Route::middleware(['auth:dept_admin'])->group(function () {
         Route::get('home', [DAdminAuthController::class, 'departmentDashboard'])->name('dashboard');
-        Route::resource('department', DepartmentController::class);
+        Route::resource('teacher', TeacherController::class);
         Route::get('department-fetch', [DepartmentController::class, 'departmentFetch'])->name('department.fetch');
         Route::resource('course', CourseController::class);
         Route::get('course-fetch', [CourseController::class, 'courseFetch'])->name('course.fetch');
