@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\GlobalController;
 use App\Http\Controllers\Admin\SessionController;
+use App\Http\Controllers\Admin\SemesterController;
 use App\Http\Controllers\DAdmin\StudentController;
 use App\Http\Controllers\DAdmin\TeacherController;
 use App\Http\Controllers\Admin\DepartmentController;
@@ -35,6 +36,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('course-fetch', [CourseController::class, 'courseFetch'])->name('course.fetch');
         Route::resource('session', SessionController::class);
         Route::get('session-fetch', [SessionController::class, 'sessionFetch'])->name('session.fetch');
+        Route::resource('semester', SemesterController::class);
+        Route::get('semester-fetch', [SemesterController::class, 'semesterFetch'])->name('semester.fetch');
         Route::resource('dept-admin', DepartmentAdminController::class);
 
         Route::get('teachers', [GlobalController::class, 'teachers'])->name('teachers');
