@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-
+use App\Models\Semester;
 use Illuminate\Database\Seeder;
 use Database\Seeders\Department;
 
@@ -19,7 +19,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             Department::class,
-            Course::class
+            Course::class,
+            SemesterSeeder::class,
+            SessionSeeder::class,
+            DepartmentAdminSeeder::class
         ]);
     }
 }

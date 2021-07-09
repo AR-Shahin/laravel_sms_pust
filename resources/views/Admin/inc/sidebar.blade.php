@@ -122,7 +122,7 @@
           @auth('dept_admin')
             <li class="nav-item">
                 <a href="{{ route('d-admin.teacher.index') }}" class="nav-link">
-                <i class="nav-icon far fa-image"></i>
+                <i class="nav-icon fa fa-user-alt"></i>
                 <p>
                     Teacher
                 </p>
@@ -130,7 +130,7 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route('d-admin.student.index') }}" class="nav-link">
-                <i class="nav-icon far fa-image"></i>
+                <i class="nav-icon fa fa-user-alt-slash"></i>
                 <p>
                     Student
                 </p>
