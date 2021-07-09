@@ -78,6 +78,22 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route('admin.teachers') }}" class="nav-link">
+                <i class="nav-icon fa fa-users"></i>
+                <p>
+                   Teachers
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.students') }}" class="nav-link">
+                <i class="nav-icon fa fa-users"></i>
+                <p>
+                    Students
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <form action="{{ route('logout') }}" class="d-inline" method="POST">
                     @csrf
                     <input type="hidden" value="admin" name="auth">

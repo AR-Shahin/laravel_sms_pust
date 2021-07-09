@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\DepartmentAdminController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\GlobalController;
 use App\Http\Controllers\DAdmin\AuthController as DAdminAuthController;
 use App\Http\Controllers\DAdmin\StudentController;
 use App\Http\Controllers\DAdmin\TeacherController;
@@ -33,6 +34,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('course-fetch', [CourseController::class, 'courseFetch'])->name('course.fetch');
 
         Route::resource('dept-admin', DepartmentAdminController::class);
+
+        Route::get('teachers', [GlobalController::class, 'teachers'])->name('teachers');
+        Route::get('students', [GlobalController::class, 'students'])->name('students');
     });
 });
 
