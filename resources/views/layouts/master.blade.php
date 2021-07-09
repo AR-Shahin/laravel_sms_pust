@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
 @section('app_content')
+  <!-- Nav -->
+     @include('Admin.inc.navbar')
 
-    @if ( auth('admin')->user())
+
+    @include('Admin.inc.sidebar')
+    {{-- @if ( auth('admin')->user())
     @include('Admin.inc.navbar')
     <!-- Main Sidebar Container -->
     @include('Admin.inc.sidebar')
-    @endif
-
+    @endif --}}
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->

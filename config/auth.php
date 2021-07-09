@@ -42,7 +42,7 @@ return [
         ],
         'dept_admin' => [
             'driver' => 'session',
-            'provider' => 'admins',
+            'provider' => 'department_admins',
         ],
         'api' => [
             'driver' => 'token',
@@ -74,6 +74,10 @@ return [
             'model' => App\Models\Admin::class,
         ],
 
+        'department_admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\DepartmentAdmin::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -98,6 +102,12 @@ return [
     'passwords' => [
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'department_admins' => [
+            'provider' => 'department_admins',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

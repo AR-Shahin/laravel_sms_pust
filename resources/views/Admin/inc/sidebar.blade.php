@@ -86,14 +86,30 @@
             </li>
           @endauth
 
+          <!-- Dept admin -->
           @auth('dept_admin')
             <li class="nav-item">
-                <a href="{{ route('admin.dept-admin.index') }}" class="nav-link">
+                <a href="" class="nav-link">
                 <i class="nav-icon far fa-image"></i>
                 <p>
-                    Depatment Admin
+                    Teacher
                 </p>
                 </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                    Student
+                </p>
+                </a>
+            </li>
+             <li class="nav-item">
+                <form action="{{ route('logout') }}" class="d-inline" method="POST">
+                    @csrf
+                    <input type="hidden" value="dept_admin" name="auth">
+                    <button type="submit" class="btn btn-primary btn-sm btn-block">Logout</button>
+                </form>
             </li>
           @endauth
 

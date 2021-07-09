@@ -47,7 +47,6 @@ class DepartmentAdminController extends Controller
             'password' => 'required',
             'phone' => 'required',
         ]);
-        $request->password = bcrypt($request->password);
         DepartmentAdmin::create($request->all());
         $this->setSuccessMessage();
         return back();
