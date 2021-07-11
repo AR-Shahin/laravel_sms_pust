@@ -35,7 +35,20 @@
                                 <td>{{ $course->semester->name ?? '' }}</td>
                                 <td>{{ $course->course->name ?? '' }}</td>
                                 <td>{{ $course->teacher->name ?? '' }}</td>
-                                <td></td>
+                                <td>
+                                    <a href="{{ route('d-admin.assign-course.edit',$course->id) }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
+                                    <a href="" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
+                                    <form
+                                    action="{{ route('d-admin.assign-course.destroy',$course->id) }}"
+                                    method="POST" class="d-inline">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button data-toggle="tooltip" data-placement="top"
+                                        title="Delete Bed"
+                                        onclick="return confirm('Are you sure you want to delete this item?');"
+                                        class="btn bg-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                </form>
+                                </td>
                             </tr>
                           @endforeach
 
