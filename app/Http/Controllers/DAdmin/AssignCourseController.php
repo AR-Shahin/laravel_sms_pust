@@ -62,7 +62,6 @@ class AssignCourseController extends Controller
             'teacher_id' => 'required',
             'course_id' => 'required',
         ]);
-        // dd($this->checkExistsAssignCourse($request->all()));
         if ($this->checkExistsAssignCourse($request->all())) {
             CourseTeacher::create($request->all());
             $this->setSuccessMessage();
@@ -75,13 +74,6 @@ class AssignCourseController extends Controller
 
     protected function checkExistsAssignCourse($request): bool
     {
-        // $course = CourseTeacher::where([
-        //     ['session_id', $request['session_id']],
-        //     ['semester_id', $request['semester_id]'],
-        //     ['teacher_id', $request['teacher_id']],
-        //     ['course_id', $request->['course_id']]
-        // ])->first();
-        // dd($request->semester_id);
         $course = CourseTeacher::where('session_id', $request['session_id'])
             ->where('semester_id', $request['semester_id'])
             ->where('teacher_id', $request['teacher_id'])
@@ -112,7 +104,13 @@ class AssignCourseController extends Controller
      */
     public function edit(CourseTeacher $assign_course)
     {
-        return view('Department.Student.edit', compact('student'));
+        $course = $assign_course;
+
+        $courses = Course::latest()->get();
+        $sessions = Session::latest()->get();
+        $semesters = Semester::latest()->get();
+        $teachers = Teacher::where('department_id', auth('dept_admin')->user()->department_id)->latest()->get();
+        return view('Department.Assign.edit', compact('courses', 'sessions', 'semesters', 'teachers', 'course'));
     }
 
     /**
