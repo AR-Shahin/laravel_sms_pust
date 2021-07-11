@@ -10,6 +10,7 @@ use App\Http\Controllers\DAdmin\StudentController;
 use App\Http\Controllers\DAdmin\TeacherController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DepartmentAdminController;
+use App\Http\Controllers\DAdmin\AssignCourseController;
 use App\Http\Controllers\DAdmin\AuthController as DAdminAuthController;
 
 
@@ -57,10 +58,7 @@ Route::prefix('d-admin')->name('d-admin.')->group(function () {
         Route::get('home', [DAdminAuthController::class, 'departmentDashboard'])->name('dashboard');
         Route::resource('teacher', TeacherController::class);
         Route::resource('student', StudentController::class);
-        Route::get('department-fetch', [DepartmentController::class, 'departmentFetch'])->name('department.fetch');
-        Route::resource('course', CourseController::class);
-        Route::get('course-fetch', [CourseController::class, 'courseFetch'])->name('course.fetch');
-
-        Route::resource('dept-admin', DepartmentAdminController::class);
+        //Assign Course
+        Route::resource('assign-course', AssignCourseController::class);
     });
 });

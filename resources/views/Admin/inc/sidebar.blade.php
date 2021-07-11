@@ -136,6 +136,14 @@
                 </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('d-admin.assign-course.index') }}" class="nav-link">
+                <i class="nav-icon fa fa-book"></i>
+                <p>
+                    Assign Course
+                </p>
+                </a>
+            </li>
              <li class="nav-item">
                 <form action="{{ route('logout') }}" class="d-inline" method="POST">
                     @csrf
