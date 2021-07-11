@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('d-admin.assign-course.store') }}" method="post">
+                <form action="{{ route('d-admin.assign-course.update',$course->id) }}" method="post">
                     @csrf
 
                    <div class="row">

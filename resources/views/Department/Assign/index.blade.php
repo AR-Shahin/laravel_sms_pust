@@ -36,7 +36,7 @@
                                 <td>{{ $course->course->name ?? '' }}</td>
                                 <td>{{ $course->teacher->name ?? '' }}</td>
                                 <td>
-                                    <a href="{{ route('d-admin.assign-course.edit',$course->id) }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
+                                    {{-- <a href="{{ route('d-admin.assign-course.edit',$course->id) }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a> --}}
                                     <a href="" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
                                     <form
                                     action="{{ route('d-admin.assign-course.destroy',$course->id) }}"

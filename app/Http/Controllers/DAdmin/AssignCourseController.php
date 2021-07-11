@@ -123,13 +123,18 @@ class AssignCourseController extends Controller
     public function update(Request $request, CourseTeacher $assign_course)
     {
         $request->validate([
-            'name' => 'required',
-            'registration' => ['numeric', "unique:students,registration,{$assign_course->id}"],
-            'email' => "required|unique:students,email,{$assign_course->id}",
-            'phone' => 'required',
+            'session_id' => 'required',
+            'semester_id' => 'required',
+            'teacher_id' => 'required',
+            'course_id' => 'required',
         ]);
-        $assign_course->update($request->all());
-        $this->setSuccessMessage('Data Updated Successfully!');
+        if ($this->checkExistsAssignCourse($request->all())) {
+            CourseTeacher::create($request->all());
+            $this->setSuccessMessage();
+        } else {
+            $this->setErrorMessage('Already Assigned!');
+        }
+
         return back();
     }
 
