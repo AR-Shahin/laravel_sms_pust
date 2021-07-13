@@ -153,6 +153,26 @@
             </li>
           @endauth
 
+          <!-- Teacher -->
+
+          @auth('teacher')
+            <li class="nav-item">
+                <a href="{{ route('teacher.my-course') }}" class="nav-link">
+                <i class="nav-icon fa fa-book"></i>
+                <p>
+                    My Course
+                </p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <form action="{{ route('logout') }}" class="d-inline" method="POST">
+                    @csrf
+                    <input type="hidden" value="teacher" name="auth">
+                    <button type="submit" class="btn btn-primary btn-sm btn-block">Logout</button>
+                </form>
+            </li>
+          @endauth
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

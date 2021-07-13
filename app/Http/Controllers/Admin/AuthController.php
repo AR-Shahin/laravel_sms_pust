@@ -42,5 +42,13 @@ class AuthController extends Controller
             Auth::guard('dept_admin')->logout();
             return redirect()->route('d-admin.login');
         }
+        if ($request->auth === 'teacher') {
+            Auth::guard('teacher')->logout();
+            return redirect()->route('teacher.login');
+        }
+        if ($request->auth === 'student') {
+            Auth::guard('student')->logout();
+            return redirect()->route('student.login');
+        }
     }
 }
