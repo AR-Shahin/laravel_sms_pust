@@ -19,6 +19,7 @@ class CreateCourseTeachersTable extends Migration
             $table->foreignId('teacher_id');
             $table->foreignId('session_id');
             $table->foreignId('semester_id');
+            $table->foreignId('department_id');
             $table->timestamps();
         });
     }

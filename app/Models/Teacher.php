@@ -31,4 +31,9 @@ class Teacher extends Model
     {
         return $this->belongsTo(DepartmentAdmin::class, 'admin_id');
     }
+
+    public function course_teachers()
+    {
+        return $this->hasMany(CourseTeacher::class, 'teacher_id');
+    }
 }

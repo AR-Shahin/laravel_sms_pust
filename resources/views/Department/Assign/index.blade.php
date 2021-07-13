@@ -52,7 +52,7 @@
                             </tr>
                           @endforeach
 
-                        {{ $courses->links() }}
+                        {{-- {{ $courses->links() }} --}}
                       </tbody>
                     </table>
                 </div>

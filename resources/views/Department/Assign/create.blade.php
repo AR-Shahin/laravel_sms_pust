@@ -18,7 +18,7 @@
             <div class="card-body">
                 <form action="{{ route('d-admin.assign-course.store') }}" method="post">
                     @csrf
-
+                    <input type="hidden" value="{{ auth('dept_admin')->user()->department_id }}" name="department_id">
                    <div class="row">
                        <div class="col-6">
                             <div class="form-group">

@@ -19,16 +19,12 @@ class AssignCourseController extends Controller
      */
     public function index()
     {
-
         $courses = CourseTeacher::with(
-            ['teacher' => function ($query) {
-                $query->where('department_id', auth('dept_admin')->user()->department_id);
-            }],
+            'teacher',
             'course',
             'session',
             'semester'
-
-        )->paginate(10);
+        )->where('department_id', auth('dept_admin')->user()->department_id)->latest()->get();
         return view('Department.Assign.index', compact('courses'));
     }
     // ->with(['payments' => function ($query) {
