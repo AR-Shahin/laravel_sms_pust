@@ -27,7 +27,7 @@ class TeacherFactory extends Factory
             'department_id' => rand(1, 5),
             'admin_id' => 1,
             'email' => $this->faker->safeEmail,
-            'password' => bcrypt('password'),
+            'password' => "password",
             'phone' => 458966666666,
         ];
     }

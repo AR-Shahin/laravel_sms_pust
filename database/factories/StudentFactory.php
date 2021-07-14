@@ -27,7 +27,7 @@ class StudentFactory extends Factory
             'department_id' => rand(1, 5),
             'registration' => rand(1000, 90000),
             'email' => $this->faker->safeEmail,
-            'password' => bcrypt('password'),
+            'password' => 'password',
             'phone' => 458966666666,
         ];
     }
