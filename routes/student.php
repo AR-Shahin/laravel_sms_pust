@@ -2,8 +2,9 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Student\EnrollCourse;
 use App\Http\Controllers\Student\AuthController;
-
+use App\Http\Controllers\Student\EnrollCourseController;
 
 Route::prefix('student')->name('student.')->group(function () {
     Route::get('login', [AuthController::class, 'studentLoginForm'])->name('login');
@@ -14,6 +15,6 @@ Route::prefix('student')->name('student.')->group(function () {
         Route::get('home', [AuthController::class, 'studentDashboard'])->name('dashboard');
 
         // //My Course
-        // Route::get('my-course', [MyCourseController::class, 'myAssignedCourses'])->name('my-course');
+        Route::get('enroll-course', [EnrollCourseController::class, 'enrollCourse'])->name('enroll-course');
     });
 });

@@ -178,10 +178,10 @@
 
            @auth('student')
            <li class="nav-item">
-               <a href="{{ route('teacher.my-course') }}" class="nav-link">
+               <a href="{{ route('student.enroll-course') }}" class="nav-link">
                <i class="nav-icon fa fa-book"></i>
                <p>
-                   My Course
+                   Enroll Course
                </p>
                </a>
            </li>
