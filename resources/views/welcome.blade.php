@@ -23,11 +23,10 @@
        <div style="text-align: center">
         <a href="{{ route('admin.login') }}" class="btn btn-link">Admin Login</a> <br>
         <a href="{{ route('d-admin.login') }}" class="btn btn-link">Department Admin Login</a>
-        @verbatim
-        <div class="container">
-            Hello, {{ name }}.
-        </div>
-    @endverbatim
+      <br>
+      <a href="{{ route('teacher.login') }}" class="btn btn-link">Teacher Login</a>
+      <br>
+      <a href="{{ route('student.login') }}" class="btn btn-link">Student Login</a>
        </div>
        <script>
            let name = 'pmi'

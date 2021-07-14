@@ -1,0 +1,19 @@
+<?php
+
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Student\AuthController;
+
+
+Route::prefix('student')->name('student.')->group(function () {
+    Route::get('login', [AuthController::class, 'studentLoginForm'])->name('login');
+    Route::post('login', [AuthController::class, 'studentLoginProcess'])->name('login');
+
+    // Auth
+    Route::middleware(['auth:student'])->group(function () {
+        Route::get('home', [AuthController::class, 'studentDashboard'])->name('dashboard');
+
+        // //My Course
+        // Route::get('my-course', [MyCourseController::class, 'myAssignedCourses'])->name('my-course');
+    });
+});
