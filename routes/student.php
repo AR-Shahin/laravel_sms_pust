@@ -16,5 +16,7 @@ Route::prefix('student')->name('student.')->group(function () {
 
         // //My Course
         Route::get('enroll-course', [EnrollCourseController::class, 'enrollCourse'])->name('enroll-course');
+
+        Route::post('take-teacher/{course}', [EnrollCourseController::class, 'takeTeacher'])->name('take-teacher');
     });
 });

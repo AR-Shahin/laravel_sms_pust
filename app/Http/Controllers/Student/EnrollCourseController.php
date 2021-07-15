@@ -10,7 +10,15 @@ class EnrollCourseController extends Controller
 {
     function enrollCourse()
     {
-        return  $teachers = CourseTeacher::whereDepartmentId(auth('student')->user()->department_id)->get();
-        return view('Student.enroll');
+        $courses = CourseTeacher::whereDepartmentId(auth('student')->user()->department_id)->get();
+        return view('Student.enroll', compact('courses'));
+    }
+
+    public function takeTeacher(CourseTeacher $course)
+    {
+        return $course;
+    }
+    function myEnrolledCourses()
+    {
     }
 }
