@@ -33,7 +33,7 @@ class MarkController extends Controller
             'marks' => $request->marks
         ]);
 
-        $this->setSuccessMessage("Assign marks of ({$course->course->name}) this course");
+        $this->setSuccessMessage("Assign marks of ({$course->course->name}) this course. Marks is {$request->marks}");
         return redirect()->route('teacher.marks');
     }
 
@@ -63,5 +63,13 @@ class MarkController extends Controller
         $student_mark->save();
         $this->setSuccessMessage("Mark Has Updated!");
         return redirect()->route('teacher.marks');
+    }
+
+    // Student
+
+    public function getMarksFromStudent()
+    {
+        $courses = StudentMark::without('student')->whereStudentId(auth('student')->id())->latest()->get();
+        return view('Student.marks', compact('courses'));
     }
 }

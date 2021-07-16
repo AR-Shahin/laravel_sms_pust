@@ -208,6 +208,14 @@
             </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('student.marks') }}" class="nav-link">
+            <i class="nav-icon fa fa-book"></i>
+            <p>
+                Mark
+            </p>
+            </a>
+        </li>
            <li class="nav-item">
                <form action="{{ route('logout') }}" class="d-inline" method="POST">
                    @csrf

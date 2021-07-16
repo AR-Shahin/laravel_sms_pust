@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MarkController;
 use App\Http\Controllers\Student\EnrollCourse;
 use App\Http\Controllers\Student\AuthController;
 use App\Http\Controllers\Student\EnrollCourseController;
@@ -19,5 +20,8 @@ Route::prefix('student')->name('student.')->group(function () {
         Route::get('my-course', [EnrollCourseController::class, 'myEnrolledCourses'])->name('my-course');
         Route::post('take-teacher/{course}', [EnrollCourseController::class, 'takeTeacher'])->name('take-teacher');
         Route::delete('remove-teacher/{course}', [EnrollCourseController::class, 'removeEnrolledCourse'])->name('remove-teacher');
+
+        // Marks
+        Route::get('marks', [MarkController::class, 'getMarksFromStudent'])->name('marks');
     });
 });

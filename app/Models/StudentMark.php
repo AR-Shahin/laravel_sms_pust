@@ -10,7 +10,7 @@ class StudentMark extends Model
     use HasFactory;
 
     protected $guarded = [];
-
+    protected $with = ['teacher', 'course', 'session', 'student', 'semester'];
     public function teacher()
     {
         return $this->belongsTo(Teacher::class, 'teacher_id');
@@ -29,5 +29,9 @@ class StudentMark extends Model
     public function semester()
     {
         return $this->belongsTo(Semester::class);
+    }
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
     }
 }
