@@ -17,6 +17,7 @@ class EnrollCourseController extends Controller
 
     public function takeTeacher(CourseTeacher $course)
     {
+        // return $this->checkExistsCourse($course);
         if ($this->checkExistsCourse($course)) {
             $this->setErrorMessage("{$course->course->name} Already Enrolled!");
             return back();
@@ -44,8 +45,10 @@ class EnrollCourseController extends Controller
         $c = EnrollCourse::whereStudentId(auth('student')->id())
             ->whereSemesterId($course->semester_id)
             ->whereSessionId($course->session_id)
-            ->first();
 
+            ->whereCourseId($course->course_id)
+            ->first();
+        //return $c;
         if ($c) {
             return true;
         } else {

@@ -20,13 +20,15 @@
             @endauth --}}
             @if (auth('admin')->user())
             <a href="#" class="d-block">{{ auth('admin')->user()->name }}</a>
+
             @elseif (auth('dept_admin')->user())
             <a href="#" class="d-block">{{ auth('dept_admin')->user()->name }}</a>
             <a href="#" class="d-block">Dept : {{ auth('dept_admin')->user()->department->name }}</a>
-            <a href="#" class="d-block">Dept : {{ auth('dept_admin')->user()->department->name }}</a>
+
             @elseif (auth('teacher')->user())
             <a href="#" class="d-block">{{ auth('teacher')->user()->name }}</a>
             <a href="#" class="d-block">Dept : {{ auth('teacher')->user()->department->name }}</a>
+
             @elseif (auth('student')->user())
             <a href="#" class="d-block">{{ auth('student')->user()->name }}</a>
             <a href="#" class="d-block">Dept : {{ auth('student')->user()->department->name }}</a>
