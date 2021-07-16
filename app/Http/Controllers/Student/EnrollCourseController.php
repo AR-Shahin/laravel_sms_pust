@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class EnrollCourseController extends Controller
 {
-    function enrollCourse()
+    public  function enrollCourse()
     {
         $courses = CourseTeacher::whereDepartmentId(auth('student')->user()->department_id)->get();
         return view('Student.enroll', compact('courses'));
@@ -35,6 +35,8 @@ class EnrollCourseController extends Controller
     }
     function myEnrolledCourses()
     {
+        $courses = EnrollCourse::whereStudentId(auth('student')->id())->latest()->get();
+        return view('Student.my-courses', compact('courses'));
     }
 
     protected function checkExistsCourse($course)

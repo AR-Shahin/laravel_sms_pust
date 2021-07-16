@@ -14,9 +14,9 @@ Route::prefix('student')->name('student.')->group(function () {
     Route::middleware(['auth:student'])->group(function () {
         Route::get('home', [AuthController::class, 'studentDashboard'])->name('dashboard');
 
-        // //My Course
+        //My Course
         Route::get('enroll-course', [EnrollCourseController::class, 'enrollCourse'])->name('enroll-course');
-
+        Route::get('my-course', [EnrollCourseController::class, 'myEnrolledCourses'])->name('my-course');
         Route::post('take-teacher/{course}', [EnrollCourseController::class, 'takeTeacher'])->name('take-teacher');
         Route::delete('remove-teacher/{course}', [EnrollCourseController::class, 'removeEnrolledCourse'])->name('remove-teacher');
     });
