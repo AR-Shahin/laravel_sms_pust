@@ -164,7 +164,14 @@
                 </p>
                 </a>
             </li>
-
+            <li class="nav-item">
+                <a href="{{ route('teacher.my-enroll-course') }}" class="nav-link">
+                <i class="nav-icon fa fa-book"></i>
+                <p>
+                    Enrolled Course
+                </p>
+                </a>
+            </li>
             <li class="nav-item">
                 <form action="{{ route('logout') }}" class="d-inline" method="POST">
                     @csrf
@@ -174,7 +181,7 @@
             </li>
           @endauth
 
-           <!-- Teacher -->
+           <!-- Student -->
 
            @auth('student')
            <li class="nav-item">

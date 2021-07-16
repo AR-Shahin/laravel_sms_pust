@@ -15,5 +15,6 @@ Route::prefix('teacher')->name('teacher.')->group(function () {
 
         //My Course
         Route::get('my-course', [MyCourseController::class, 'myAssignedCourses'])->name('my-course');
+        Route::get('my-enroll-course', [MyCourseController::class, 'myEnrolledCourses'])->name('my-enroll-course');
     });
 });
