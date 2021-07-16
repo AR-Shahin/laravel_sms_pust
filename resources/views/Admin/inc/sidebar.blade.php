@@ -13,7 +13,24 @@
           <img src="{{ asset('uploads/backend/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+            {{-- @auth('admin')
+                <a href="#" class="d-block">{{ auth('admin')->user->name }}</a>
+            @elseif ('dept_admin')
+
+            @endauth --}}
+            @if (auth('admin')->user())
+            <a href="#" class="d-block">{{ auth('admin')->user()->name }}</a>
+            @elseif (auth('dept_admin')->user())
+            <a href="#" class="d-block">{{ auth('dept_admin')->user()->name }}</a>
+            <a href="#" class="d-block">Dept : {{ auth('dept_admin')->user()->department->name }}</a>
+            <a href="#" class="d-block">Dept : {{ auth('dept_admin')->user()->department->name }}</a>
+            @elseif (auth('teacher')->user())
+            <a href="#" class="d-block">{{ auth('teacher')->user()->name }}</a>
+            <a href="#" class="d-block">Dept : {{ auth('teacher')->user()->department->name }}</a>
+            @elseif (auth('student')->user())
+            <a href="#" class="d-block">{{ auth('student')->user()->name }}</a>
+            <a href="#" class="d-block">Dept : {{ auth('student')->user()->department->name }}</a>
+            @endif
         </div>
       </div>
 
