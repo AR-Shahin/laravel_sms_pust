@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\EnrollCourse;
+use App\Models\Setting;
 use App\Models\StudentMark;
 
 function checkExistsEnrolledCourse($tId, $cId, $sId, $ssId): bool
@@ -31,6 +32,17 @@ function checkAssignMarksOfCourse($stId, $cId, $sId, $ssId): bool
         ->first();
 
     if ($c) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+function checkCourseEnrollOpenOrNot(): bool
+{
+    $s = Setting::first();
+    if ($s->is_enroll) {
         return true;
     } else {
         return false;

@@ -2,9 +2,16 @@
 
 @section('title' , 'Student Enroll Course')
 @section('master_content')
+@if (!checkCourseEnrollOpenOrNot())
+<div class="card">
+    <div class="card-body text-center">
+        <h4 class="text-warning">Course Enroll hasn't Start Yet!!</h4>
+    </div>
+</div>
+@else
 <div class="card">
     <div class="card-header">
-        <h3>Enroll Course</h3> {{ auth('student')->user()->department->name }}
+        <h3>Enroll Course</h3>
     </div>
     <div class="card-body">
         <table class="table table-borderd">
@@ -44,5 +51,5 @@
         </table>
     </div>
 </div>
-
+@endif
 @stop
