@@ -25,7 +25,12 @@
                     <td>{{ $c->course->name }}</td>
                     <td>{{ $c->student->name }}</td>
                     <td>
-                        <a href="{{ route('teacher.assign.marks',$c->id) }}" class="btn btn-sm btn-info">Assign Marks</a>
+                        @if (checkAssignMarksOfCourse($c->student_id,$c->course_id,$c->semester_id,$c->session_id))
+                        <a href="{{ route('teacher.assign.marks.edit',$c->id) }}"" class="btn btn-primary btn-sm">Edit Marks</a>
+                            @else
+                            <a href="{{ route('teacher.assign.marks',$c->id) }}" class="btn btn-sm btn-info">Assign Marks</a>
+                        @endif
+
                     </td>
                 </tr>
                 @empty

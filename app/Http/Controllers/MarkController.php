@@ -36,4 +36,9 @@ class MarkController extends Controller
         $this->setSuccessMessage("Assign marks of ({$course->course->name}) this course");
         return redirect()->route('teacher.marks');
     }
+
+    function editAssignMarksFromTeacher(EnrollCourse $course)
+    {
+        return $course;
+    }
 }

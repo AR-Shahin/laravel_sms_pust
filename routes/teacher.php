@@ -22,5 +22,6 @@ Route::prefix('teacher')->name('teacher.')->group(function () {
         Route::get('marks', [MarkController::class, 'getMarksFromTeacher'])->name('marks');
         Route::get('assign-marks/{course}', [MarkController::class, 'assignMarksFromTeacher'])->name('assign.marks');
         Route::post('assign--marks/{course}', [MarkController::class, 'assignMarks'])->name('store.assign.marks');
+        Route::get('assign-marks-edit/{course}', [MarkController::class, 'editAssignMarksFromTeacher'])->name('assign.marks.edit');
     });
 });
