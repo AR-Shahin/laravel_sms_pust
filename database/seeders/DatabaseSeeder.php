@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             Course::class,
             SemesterSeeder::class,
             SessionSeeder::class,
-            DepartmentAdminSeeder::class
+            DepartmentAdminSeeder::class,
+            SettingsSeeder::class
         ]);
     }
 }

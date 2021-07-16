@@ -127,6 +127,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route('admin.settings') }}" class="nav-link">
+                <i class="nav-icon fa fa-cog"></i>
+                <p>
+                    Settings
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <form action="{{ route('logout') }}" class="d-inline" method="POST">
                     @csrf
                     <input type="hidden" value="admin" name="auth">

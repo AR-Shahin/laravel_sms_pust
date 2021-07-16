@@ -10,10 +10,10 @@ use App\Http\Controllers\DAdmin\StudentController;
 use App\Http\Controllers\DAdmin\TeacherController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DepartmentAdminController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\DAdmin\AssignCourseController;
 use App\Http\Controllers\DAdmin\AuthController as DAdminAuthController;
-
-
+use App\Models\Setting;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,6 +43,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::get('teachers', [GlobalController::class, 'teachers'])->name('teachers');
         Route::get('students', [GlobalController::class, 'students'])->name('students');
+
+        // Settings
+        Route::get('settings', [SettingController::class, 'index'])->name('settings');
+        Route::post('settings', [SettingController::class, 'courseEnrollToggle'])->name('settings');
     });
 });
 
