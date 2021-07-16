@@ -30,7 +30,7 @@ class EnrollCourseController extends Controller
 
         ]);
 
-        $this->setSuccessMessage('Successfully Enrolled!!');
+        $this->setSuccessMessage($course->course->name . ' Successfully Enrolled!!');
         return back();
     }
     function myEnrolledCourses()
@@ -49,5 +49,18 @@ class EnrollCourseController extends Controller
         } else {
             return false;
         }
+    }
+
+    function removeEnrolledCourse(CourseTeacher $course)
+    {
+        EnrollCourse::whereStudentId(auth('student')->id())
+            ->whereTeacherId($course->teacher_id)
+            ->whereCourseId($course->course_id)
+            ->whereSemesterId($course->semester_id)
+            ->whereSessionId($course->session_id)
+            ->delete();
+
+        $this->setSuccessMessage($course->course->name . ' Remove from enroll List!!');
+        return back();
     }
 }

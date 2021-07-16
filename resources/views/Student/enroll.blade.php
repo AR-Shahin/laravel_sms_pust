@@ -31,7 +31,11 @@
                             <button class="btn btn-sm btn-success"><i class="fa fa-user"></i> Take Teacher</button>
                         </form>
                         @else
-                        <button class="btn btn-sm btn-danger"><i class="fa fa-user"></i> Remove Teacher</button>
+                        <form action="{{ route('student.remove-teacher',$c->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-sm btn-danger"><i class="fa fa-user"></i> Remove Teacher</button>
+                        </form>
                         @endif
                     </td>
                 </tr>
