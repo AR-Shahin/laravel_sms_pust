@@ -20,6 +20,7 @@ function checkExistsEnrolledCourse($tId, $cId, $sId, $ssId): bool
 }
 
 
+
 function checkAssignMarksOfCourse($stId, $cId, $sId, $ssId): bool
 {
     $c = StudentMark::whereTeacherId(auth('teacher')->id())

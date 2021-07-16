@@ -39,6 +39,29 @@ class MarkController extends Controller
 
     function editAssignMarksFromTeacher(EnrollCourse $course)
     {
-        return $course;
+
+        $marks =  $this->getMarks($course);
+        return view('Teacher.assign-marks-edit', compact('course', 'marks'));
+    }
+
+
+    protected function getMarks($course)
+    {
+        $m = StudentMark::select('id', 'marks')->whereTeacherId(auth('teacher')->id())
+            ->whereCourseId($course->course_id)
+            ->whereSemesterId($course->semester_id)
+            ->whereSessionId($course->session_id)
+            ->whereStudentId($course->student_id)
+            ->first();
+
+        return $m;
+    }
+
+    function updateMarks(Request $request, StudentMark $student_mark)
+    {
+        $student_mark->marks = $request->marks;
+        $student_mark->save();
+        $this->setSuccessMessage("Mark Has Updated!");
+        return redirect()->route('teacher.marks');
     }
 }
