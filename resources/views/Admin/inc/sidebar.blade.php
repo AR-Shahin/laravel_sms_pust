@@ -173,6 +173,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route('teacher.marks') }}" class="nav-link">
+                <i class="nav-icon fa fa-book"></i>
+                <p>
+                    Mark
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <form action="{{ route('logout') }}" class="d-inline" method="POST">
                     @csrf
                     <input type="hidden" value="teacher" name="auth">
