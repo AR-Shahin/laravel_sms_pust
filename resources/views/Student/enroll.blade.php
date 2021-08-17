@@ -23,6 +23,7 @@
                 <th>Teacher</th>
                 <th>Actions</th>
             </tr>
+
             <tbody>
                 @foreach ($courses as $c)
                 <tr>

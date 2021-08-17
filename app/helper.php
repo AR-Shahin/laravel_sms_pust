@@ -4,7 +4,7 @@ use App\Models\EnrollCourse;
 use App\Models\Setting;
 use App\Models\StudentMark;
 
-function checkExistsEnrolledCourse($tId, $cId, $sId, $ssId): bool
+function checkExistsEnrolledCourse($tId = 1, $cId = 1, $sId = 1, $ssId = 1): bool
 {
     $c = EnrollCourse::whereStudentId(auth('student')->id())
         ->whereTeacherId($tId)
