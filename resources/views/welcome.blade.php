@@ -11,7 +11,7 @@
 
         <!-- Styles -->
 
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
@@ -20,14 +20,7 @@
     </head>
     <body>
         <h1 style="text-align: center;font-size:65px;margin-top:200px">Student Management System</h1>
-       <div style="text-align: center">
-        <a href="{{ route('admin.login') }}" class="btn btn-link">Admin Login</a> <br>
-        <a href="{{ route('d-admin.login') }}" class="btn btn-link">Department Admin Login</a>
-      <br>
-      <a href="{{ route('teacher.login') }}" class="btn btn-link">Teacher Login</a>
-      <br>
-      <a href="{{ route('student.login') }}" class="btn btn-link">Student Login</a>
-       </div>
+      
        <script>
            let name = 'pmi'
        </script>

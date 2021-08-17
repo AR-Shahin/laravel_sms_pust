@@ -16,7 +16,7 @@ use App\Http\Controllers\DAdmin\AuthController as DAdminAuthController;
 use App\Models\Setting;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('admin.login');
 });
 
 // logout
