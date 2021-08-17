@@ -5,6 +5,7 @@ namespace App\Http\Controllers\DAdmin;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Session;
 
 class StudentController extends Controller
 {
@@ -26,7 +27,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('Department.Student.create');
+        $sessions = Session::get();
+        return view('Department.Student.create', compact('sessions'));
     }
 
     /**
@@ -43,6 +45,7 @@ class StudentController extends Controller
             'email' => 'required|unique:students,email',
             'password' => 'required',
             'phone' => 'required',
+            'session_id' => 'required',
         ]);
         Student::create($request->all());
         $this->setSuccessMessage();

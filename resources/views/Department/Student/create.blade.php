@@ -21,6 +21,16 @@
                     {{-- <input type="hidden" value="{{ auth('dept_admin')->id() }}" name="admin_id"> --}}
                     <input type="hidden" value="{{ auth('dept_admin')->user()->department_id  }}" name="department_id">
                     <div class="form-group">
+                        <label for="">Session : </label>
+                       <select name="session_id" id="" class="form-control">
+                           <option value="">Select a Session</option>
+                           @foreach ($sessions as  $session)
+                           <option value="{{ $session->id }}">{{ $session->name }}</option>
+                           @endforeach
+                       </select>
+                        @error('session_id')<span class="text-danger">{{ $message }}</span >@enderror
+                    </div>
+                    <div class="form-group">
                         <label for="">Name : </label>
                         <input type="text" class="form-control" name="name" placeholder="Name" value="{{ old('name') }}">
                         @error('name')<span class="text-danger">{{ $message }}</span >@enderror

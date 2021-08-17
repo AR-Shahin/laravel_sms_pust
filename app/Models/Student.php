@@ -29,4 +29,9 @@ class Student extends Authenticatable
     {
         return $this->belongsTo(DepartmentAdmin::class, 'admin_id');
     }
+
+    public function session()
+    {
+        return $this->belongsTo(Session::class);
+    }
 }

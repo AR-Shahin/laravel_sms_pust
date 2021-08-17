@@ -22,6 +22,7 @@
                             <th>SL</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Session</th>
                             <th>Department</th>
                             <th>Phone</th>
                             <th>Status</th>
@@ -35,6 +36,7 @@
                                 <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->email }}</td>
+                                <td>{{ $student->session->name ?? '' }}</td>
                                 <td>{{ $student->department->name ?? '' }}</td>
                                 <td>{{ $student->phone }}</td>
                                 <td>{{ $student->status }}</td>
