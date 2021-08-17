@@ -7,6 +7,8 @@
         <h3>Marks in my Courses</h3>
     </div>
     <div class="card-body">
+        <h3>My Grade : <b class="text-primary">{{ getMyGpa()['grade'] }}</b> and Cgpa : <b class="text-primary">{{ getMyGpa()['cgpa'] }}</b></h3>
+<hr>
         <table class="table table-borderd text-center table-striped">
             <tr>
                 <th>SL</th>

@@ -48,3 +48,41 @@ function checkCourseEnrollOpenOrNot(): bool
         return false;
     }
 }
+
+
+function getMyGpa(): array
+{
+    $marks = StudentMark::whereStudentId(auth('student')->id())->avg('marks');
+
+    if ($marks >= 80) {
+        return [
+            'cgpa' => 4,
+            'grade' => 'A+'
+        ];
+    } else if ($marks >= 70 && $marks < 80) {
+        return [
+            'cgpa' => 3.75,
+            'grade' => 'A'
+        ];
+    } else if ($marks >= 60 && $marks < 70) {
+        return [
+            'cgpa' => 3.50,
+            'grade' => 'A-'
+        ];
+    } else if ($marks >= 50 && $marks < 60) {
+        return [
+            'cgpa' => 2.75,
+            'grade' => 'C'
+        ];
+    } else if ($marks >= 50 && $marks < 60) {
+        return [
+            'cgpa' => 2.0,
+            'grade' => 'D'
+        ];
+    } else {
+        return [
+            'cgpa' => 0.0,
+            'grade' => 'F'
+        ];
+    }
+}
