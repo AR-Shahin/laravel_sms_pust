@@ -17,7 +17,7 @@ class DepartmentAdminController extends Controller
      */
     public function index()
     {
-        $admins = DepartmentAdmin::with('department')->latest()->get();
+        $admins = DepartmentAdmin::with('department')->latest()->cursor();
         return view('Admin.DAdmin.index', compact('admins'));
     }
 
